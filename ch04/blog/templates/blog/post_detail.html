@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Title</title>
+</head>
+<body>
+    <h2>제목 : {{object.title}}</h2>
+<p>
+    {% if object.get_previous %}
+        <a href="{{object.get_previous.get_absolute_url}}">
+            &laquo;--   {{object.get_previous}}
+        </a>
+    {% endif %}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    {% if object.get_next %}
+        <a href="{{object.get_next.get_absolute_url}}">
+            {{object.get_next}} --&raquo;
+        </a>
+    {% endif %}
+</p>
+    <p>{{object.modify_dt|date:"j F Y"}}</p>
+<br>
+<div>{{object.content|linebreaks}}</div>
+</body>
+</html>
